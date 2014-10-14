@@ -20,6 +20,10 @@ module.exports = (robot) ->
     imageMe 'active', msg, msg.match[2], true, (url) ->
       msg.send url
 
+  robot.respond /unsafe_animate( me)? (.*)/i, (msg) ->
+    imageMe 'off', msg, msg.match[2], true, (url) ->
+      msg.send url
+
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
     type = Math.floor(Math.random() * 6)
     mustachify = "http://mustachify.me/#{type}?src="
